@@ -26,11 +26,11 @@ class User extends AbstractObject {
 
   validate() {
     if (!this.nickname || !this.password) {
-      throw new BadRequestError('No nickname or password passed');
+      throw new BadRequestError('Неправильно введён логин или пароль');
     }
 
     if (this.password.length < PASSWORD_MIN_LENGTH) {
-      throw new BadRequestError('Password too short');
+      throw new BadRequestError('Пароль слишком короткий');
     }
   }
 
@@ -65,7 +65,7 @@ class User extends AbstractObject {
     const {nickname} = params;
 
     if (User.getByNickname(nickname)) {
-      throw new BadRequestError('User with this nickname already exists');
+      throw new BadRequestError('Пользователь с таким ником уже зарегестрирован');
     }
 
     const user = new User(params);
@@ -85,7 +85,7 @@ class User extends AbstractObject {
   static login ({nickname, password}) {
     const user = User.getByNickname(nickname);
     if (!user) {
-      throw new NotFoundError('User not found');
+      throw new NotFoundError('Пользователь не найден');
     }
 
     if (user.checkPassword(password)) {
@@ -104,7 +104,7 @@ class User extends AbstractObject {
       }).write();
       return token;
     } else {
-      throw new AuthError('Wrong password');
+      throw new AuthError('Неверный пароль');
     }
   }
 
