@@ -8,7 +8,8 @@
     "start": "node index.js",
     "test": "jest",
     "lint": "eslint . --fix",
-    "doc": "jsdoc --debug -c jsdoc.conf.json"
+    "doc": "jsdoc --debug -c jsdoc.conf.json",
+    "prettier": "prettier --write \"*/**/*.js\""
   },
   "keywords": [
     "chat",
@@ -21,10 +22,12 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.15.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsdoc": "^30.7.7",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "express": "^4.17.1",
@@ -32,6 +35,7 @@
     "jsdoc": "^3.6.6",
     "lowdb": "^1.0.0",
     "morgan": "^1.10.0",
+    "prettier": "^2.2.1",
     "stdio": "^2.1.1",
     "supertest": "^4.0.2"
   },
